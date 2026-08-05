@@ -34,7 +34,7 @@ function handle<TEvent extends EmitterWebhookEventName>(event: TEvent, callback:
 webhooks.onAny(({ id, name, payload }) => {
   const { action, repository, sender } = payload as AnyPayload;
   const event = action ? `${name}.${action}` : name;
-  const level = handledEvents.has(event) ? "debug" : "info";
+  const level = handledEvents.has(event) ? "info" : "debug";
 
   githubLogger[level](
     {
